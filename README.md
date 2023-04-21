@@ -35,6 +35,7 @@ Minimum Viable Product (need to have)
     - Splatting hands.
     - Doubling down.
     - Buying insurance.
+    - Hand counter.
 
 ## Design
 - The deck of cards will come from the included css package.
