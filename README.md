@@ -32,15 +32,19 @@ Minimum Viable Product (need to have)
 
 - Icebox items (nice to have)
     - User can choose color of "table" from default green.
-    - Splatting hands.
+    - Splitting hands.
     - Doubling down.
     - Buying insurance.
     - Hand counter.
 
 ## Design
-- The deck of cards will come from the included css package.
+- The deck of cards will come from the playing card css library provided by GA.
+    - ```https://replit.com/@JonSchiavone/How-to-Use-CSS-Card-Library#index.html```
 - The default table color will be green.
-- The design should mimic a card table.
+    - ```#14BA49```
+- The design should mimic a card table you would see at a casino.
+- Card sound effect provided by www.zapslpat.com
+    - ```cardflip.mp3```
 
 
 ## UI Wireframe
@@ -51,8 +55,10 @@ Minimum Viable Product (need to have)
 ## Pseudocode
 
 1) Define required constants.
-    - Bust score - 21.
+    - BUST_SCORE - >= 22.
     - Dealer hit/stay score - 16.
+        - DEALER_HIT - <= 16.
+        - DEALER_STAY - > 16.
     - Turn 1 | -1.
     - Black combos A|K, A|Q, A|J, A|10.
 
