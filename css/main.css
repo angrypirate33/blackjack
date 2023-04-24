@@ -68,7 +68,9 @@ body {
 }
 
 #dealerCards > div, #playerCards > div {
-    border: solid;
+    border: dotted;
+    border-width: .1vmin;
+    border-radius: 10%;
     height: 15vmin;
     width: 10.8vmin;
 }
