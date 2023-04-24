@@ -59,6 +59,7 @@ body {
 
 #placeBet {
     font-size: 1.5vmin;
+    width: 8vmin;
 }
 
 #dealerCards, #playerCards {
@@ -88,6 +89,7 @@ body {
 #hitButton, #standButton {
     font-size: 1.5vmin;
     margin-top: .75vmin;
+    width: 8vmin;
 }
 
 #bankrollInfo {
