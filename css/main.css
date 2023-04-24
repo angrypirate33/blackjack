@@ -37,7 +37,7 @@ body {
     background-color: #14BA49;
     height: 50vh;
     width: 75vw;
-    border-style: ridge;
+    border-style: groove;
     border-width: 6vmin;
     border-radius: 15%;
     border-color: #D50000;
@@ -47,11 +47,24 @@ body {
     text-align: center;
     font-size: 2vmin;
     font-family: 'Castoro Titling', sans-serif;
+    padding-top: 1vmin;
+}
+
+#wagerAmt {
+    height: 1.5vmin;
+    width: 10vmin;
+    margin-top: 1.5vmin;
+    margin-bottom: 1.5vmin;
+}
+
+#placeBet {
+    font-size: 1.5vmin;
 }
 
 #dealerCards, #playerCards {
     display: flex;
     justify-content: right;
+    padding-right: 5vmin;
 }
 
 #dealerCards > div, #playerCards > div {
@@ -70,12 +83,20 @@ body {
     margin: auto;
 }
 
+#hitButton, #standButton {
+    font-size: 1.5vmin;
+    margin-top: .75vmin;
+}
+
 #bankrollInfo {
     margin: auto;
 }
 
 #bankrollAmt {
+    margin-top: .5vmin;
+    margin-left: -13.5vmin;
     font-family: 'Castoro Titling', sans-serif;
+    font-size: 2vmin;
 }
 
 #settingsHeader {
