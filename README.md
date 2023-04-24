@@ -43,8 +43,10 @@ Minimum Viable Product (need to have)
 - The default table color will be green.
     - ```#14BA49```
 - The design should mimic a card table you would see at a casino.
-- Card sound effect provided by www.zapslpat.com
+- Card sound effect provided by www.zapsplat.com.
     - ```cardflip.mp3```
+- Chips sound effect provided by www.zapsplat.com.
+    - ```chips.mp3```
 
 
 ## UI Wireframe
