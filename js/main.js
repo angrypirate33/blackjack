@@ -6,6 +6,8 @@ const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', '
 const originalDeck = buildOriginalDeck()
 ///////////////end of provided constants/////////////
 
+const chipSound = new Audio('sounds/chips.mp3')
+const cardSound = new Audio('sounds/cardflip.mp3')
 
 /*-------------------------------------------------*/
 
@@ -22,13 +24,18 @@ let shuffledDeck
 
 /*----------------cached elements------------------*/
 
-
+const betButton = document.getElementById('placeBet')
+const wagerAmt = document.getElementById('wagerAmt')
+const hitBtn = document.getElementById('hitButton')
+const standBtn = document.getElementById('standButton')
+const bankAmt = document.getElementById('bankrollAmt')
 
 /*-------------------------------------------------*/
 
 
 /*-----------------event listeners-----------------*/
 
+wagerAmt.addEventListener('change', playChipSound)
 
 
 /*-------------------------------------------------*/
@@ -61,6 +68,14 @@ function buildOriginalDeck() {
 return deck;
 }
 //////////////end of provided functions//////////////
+
+function playChipSound() {
+    chipSound.play()
+}
+
+function playCardSound() {
+    cardSound.play()
+}
 
 /*-------------------------------------------------*/
 

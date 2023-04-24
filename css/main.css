@@ -17,6 +17,7 @@ body {
     font-family: 'Castoro Titling', sans-serif;
     margin-bottom: -0.25vmin;
     color: white;
+    margin-top: -.5vmin;
 }
 
 #rulesDetail {
@@ -29,6 +30,14 @@ body {
     padding-left: 9vmin;
     font-family: 'Castoro Titling', sans-serif;
     color: white;
+}
+
+#messageCenter {
+    font-family: 'Castoro Titling', sans-serif;
+    color: white;
+    margin-top: 1vmin;
+    margin-bottom: 2vmin;
+    font-size: 2vmin;
 }
 
 #boardContainer {
@@ -60,6 +69,10 @@ body {
 #placeBet {
     font-size: 1.5vmin;
     width: 8vmin;
+    color: white;
+    background-color: #2E2D2D;
+    border-radius: 15%;
+    cursor: pointer;
 }
 
 #dealerCards, #playerCards {
@@ -90,6 +103,10 @@ body {
     font-size: 1.5vmin;
     margin-top: .75vmin;
     width: 8vmin;
+    color: white;
+    background-color: #2E2D2D;
+    border-radius: 15%;
+    cursor: pointer;
 }
 
 #bankrollInfo {
