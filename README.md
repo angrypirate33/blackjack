@@ -51,7 +51,7 @@ Minimum Viable Product (need to have)
 
 ## UI Wireframe
 
-![Alt text](Blackjack%20Wireframe.png)
+![Alt text](images/Blackjack%20Wireframe.png)
 
 
 ## Pseudocode
