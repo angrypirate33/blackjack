@@ -1,7 +1,83 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Castoro+Titling&display=swap');
 
+* {
+    
 }
 
 body {
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2E2D2D;
+}
+
+#pageTitle {
+    font-size: 8vmin;
+    font-family: 'Castoro Titling', sans-serif;
+    margin-bottom: -0.25vmin;
+    color: white;
+}
+
+#rulesDetail {
+    font-family: 'Castoro Titling', sans-serif;
+    color: white;
+}
+
+#rulesTitle {
+    margin: auto;
+    padding-left: 9vmin;
+    font-family: 'Castoro Titling', sans-serif;
+    color: white;
+}
+
+#boardContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #14BA49;
+    height: 50vh;
+    width: 75vw;
+    border-style: ridge;
+    border-width: 6vmin;
+    border-radius: 15%;
+    border-color: #D50000;
+}
+
+#dealerHeader, #playerHeader {
+    text-align: center;
+    font-size: 2vmin;
+    font-family: 'Castoro Titling', sans-serif;
+}
+
+#dealerCards, #playerCards {
+    display: flex;
+    justify-content: right;
+}
+
+#dealerCards > div, #playerCards > div {
+    border: solid;
+    height: 15vmin;
+    width: 10.8vmin;
+}
+
+#wagerInfo {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#playerActions {
+    margin: auto;
+}
+
+#bankrollInfo {
+    margin: auto;
+}
+
+#bankrollAmt {
+    font-family: 'Castoro Titling', sans-serif;
+}
+
+#settingsHeader {
+    color: white;
 }
