@@ -106,7 +106,7 @@ init()
 // initializes starting game state, cards, bankroll, wager, and score amts.
 function init() {
     bankAmt = 1000
-    document.querySelector('#bankrollAmt').innerHTML += ` ${bankAmt}`
+    document.querySelector('#bankrollAmt').innerHTML += `${bankAmt}`
     
  }
 
@@ -120,10 +120,17 @@ function playCardSound() {
 
 function storeWager() {
     currWager = wagerAmt.value
+    bankAmt -= wagerAmt.value
+    renderBank()
 }
 
 function calcPlayerTotal() {
 
+}
+
+function renderBank() {
+    document.querySelector('#bankrollAmt').innerHTML = ''
+    document.querySelector('#bankrollAmt').innerHTML += `Bankroll: $${bankAmt}`
 }
 
 function testCard() {
