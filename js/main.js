@@ -119,6 +119,7 @@ function playCardSound() {
 }
 
 function storeWager() {
+    clearMsg()
     currWager = wagerAmt.value
     if (currWager < bankAmt) {
     bankAmt = (bankAmt - wagerAmt.value)
@@ -136,6 +137,10 @@ function calcPlayerTotal() {
 function renderBank() {
         document.querySelector('#bankrollAmt').innerHTML = ''
         document.querySelector('#bankrollAmt').innerHTML += `Bankroll: $${bankAmt}`
+}
+
+function clearMsg() {
+    msgCntr.innerHTML = ''
 }
 
 function testCard() {
