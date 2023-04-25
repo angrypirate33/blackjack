@@ -120,8 +120,13 @@ function playCardSound() {
 
 function storeWager() {
     currWager = wagerAmt.value
-    bankAmt -= wagerAmt.value
+    if (currWager < bankAmt) {
+    bankAmt = (bankAmt - wagerAmt.value)
     renderBank()
+    } else {
+        msgCntr.innerHTML = `You do not have enough money to place this bet.  Please
+        bet less than $${bankAmt} to proceed.`
+    }
 }
 
 function calcPlayerTotal() {
@@ -129,8 +134,8 @@ function calcPlayerTotal() {
 }
 
 function renderBank() {
-    document.querySelector('#bankrollAmt').innerHTML = ''
-    document.querySelector('#bankrollAmt').innerHTML += `Bankroll: $${bankAmt}`
+        document.querySelector('#bankrollAmt').innerHTML = ''
+        document.querySelector('#bankrollAmt').innerHTML += `Bankroll: $${bankAmt}`
 }
 
 function testCard() {
