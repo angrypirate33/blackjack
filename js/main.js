@@ -3,11 +3,14 @@
 ///////constsants provided by CSS card library///////
 const suits = ['s', 'c', 'd', 'h']
 const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A']
+const NUM_DECKS = 3
 const originalDeck = buildOriginalDeck()
+
 ///////////////end of provided constants/////////////
 
 const chipSound = new Audio('sounds/chips.mp3')
 const cardSound = new Audio('sounds/cardflip.mp3')
+
 
 /*-------------------------------------------------*/
 
@@ -63,7 +66,7 @@ betButton.addEventListener('click', storeWager)
 
 //////FUNCTIONS PROVIDED BY CSS CARD LIBRARY/////////
 function getNewShuffledDeck() {
-    const tempDeck = [...originalDeck]
+    const tempDeck = [...originalDeck, ...originalDeck, ...originalDeck]
     const newShuffledDeck = []
     while (tempDeck.length) {
       const rndIdx = Math.floor(Math.random() * tempDeck.length)
@@ -104,6 +107,7 @@ init()
 function init() {
     bankAmt = 1000
     document.querySelector('#bankrollAmt').innerHTML += ` ${bankAmt}`
+    
  }
 
 function playChipSound() {
