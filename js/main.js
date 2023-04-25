@@ -11,35 +11,53 @@ const cardSound = new Audio('sounds/cardflip.mp3')
 
 /*-------------------------------------------------*/
 
-
 /*--------------------app state--------------------*/
 
 ////////variables provided by CSS card library//////
-let shuffledDeck
+let shuffledDeck = getNewShuffledDeck()
 /////////////end of provided variables/////////////
+
+// variables to store the total score of each hand
+let dTotal
+let pTotal
+let currWager
 
 
 /*-------------------------------------------------*/
 
-
 /*----------------cached elements------------------*/
 
+// this chunk of variables cache the buttons and other important elements.
 const betButton = document.getElementById('placeBet')
 const wagerAmt = document.getElementById('wagerAmt')
 const hitBtn = document.getElementById('hitButton')
 const standBtn = document.getElementById('standButton')
-const bankAmt = document.getElementById('bankrollAmt')
+let bankAmt = document.getElementById('bankrollAmt')
+let msgCntr = document.getElementById('messageCenter')
 
+// this chunk of variables cache the location each card will go.
+const pOne = document.getElementById('playerOne')
+const pTwo = document.getElementById('playerTwo')
+const pThree = document.getElementById('playerThree')
+const pFour = document.getElementById('playerFour')
+const pFive = document.getElementById('playerFive')
+const pSix = document.getElementById('playerSix')
+const pSeven = document.getElementById('playerSeven')
+const dOne = document.getElementById('dealerOne')
+const dTwo = document.getElementById('dealerTwo')
+const dThree = document.getElementById('dealerThree')
+const dFour = document.getElementById('dealerFour')
+const dFive = document.getElementById('dealerFive')
+const dSix = document.getElementById('dealerSix')
+const dSeven = document.getElementById('dealerSeven')
 /*-------------------------------------------------*/
-
 
 /*-----------------event listeners-----------------*/
 
 wagerAmt.addEventListener('change', playChipSound)
-
+betButton.addEventListener('click', storeWager)
 
 /*-------------------------------------------------*/
-
 
 /*--------------------functions--------------------*/
 
@@ -60,14 +78,33 @@ function buildOriginalDeck() {
     ranks.forEach(function(rank) {
     deck.push({
         face: `${suit}${rank}`,
-        // Setting the 'value' property for game of blackjack, not war
         value: Number(rank) || (rank === 'A' ? 11 : 10)
     })
     })
 })
 return deck;
 }
+
+function renderNewShuffledDeck() {
+    shuffledDeck = getNewShuffledDeck();
+    renderDeckInContainer(shuffledDeck, shuffledContainer);
+  }
+
+function renderDeckInContainer(deck, container) {
+    container.innerHTML = '';
+    let cardsHtml = '';
+    deck.forEach(function(card) {
+      cardsHtml += `<div class="card ${card.face}"></div>`;
+    });
+    container.innerHTML = cardsHtml;
+  }
 //////////////end of provided functions//////////////
+init()
+// initializes starting game state, cards, bankroll, wager, and score amts.
+function init() {
+    bankAmt = 1000
+    document.querySelector('#bankrollAmt').innerHTML += ` ${bankAmt}`
+ }
 
 function playChipSound() {
     chipSound.play()
@@ -76,6 +113,23 @@ function playChipSound() {
 function playCardSound() {
     cardSound.play()
 }
+
+function storeWager() {
+    currWager = wagerAmt.value
+}
+
+function calcPlayerTotal() {
+
+}
+
+function testCard() {
+    dOne.className = 'card d09'
+    pOne.className = 'card sA'
+    dTwo.className = 
+    pTwo.className = 'card hK'
+}
+
+testCard()
 
 /*-------------------------------------------------*/
 
