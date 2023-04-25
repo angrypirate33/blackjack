@@ -129,6 +129,11 @@ function storeWager() {
     }
 }
 
+// this function deals the first round of four cards in the correct positions.
+// It puts a one second delay between each card being dealt.
+// It plays the dealCard sound effect on the same delay.
+// It adds the value of the cards to each player's score.
+// It makes sure the dealers first card is face down.
 function dealFirstRound() {
     setTimeout(() => pOne.className = `card ${shuffledDeck[0].face}`, 1000)
     setTimeout(() => cardSound.play(), 1000)
@@ -179,15 +184,6 @@ function renderPlayerScore() {
 function clearMsg() {
     msgCntr.innerHTML = ''
 }
-
-// function testCard() {
-//     dOne.className = 'card d09'
-//     pOne.className = 'card sA'
-//     dTwo.className = 'card dK'
-//     pTwo.className = 'card hK'
-// }
-
-// testCard()
 
 /*-------------------------------------------------*/
 
