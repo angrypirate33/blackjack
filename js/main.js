@@ -121,7 +121,7 @@ function playCardSound() {
 function storeWager() {
     clearMsg()
     currWager = wagerAmt.value
-    if (currWager < bankAmt) {
+    if (currWager <= bankAmt) {
     bankAmt = (bankAmt - wagerAmt.value)
     renderBank()
     } else {
