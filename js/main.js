@@ -107,7 +107,6 @@ init()
 function init() {
     bankAmt = 1000
     document.querySelector('#bankrollAmt').innerHTML += `${bankAmt}`
-    
  }
 
 function playChipSound() {
@@ -130,6 +129,32 @@ function storeWager() {
     }
 }
 
+function dealFirstRound() {
+    pOne.className = `card ${shuffledDeck[0].face}`
+    pTotal = shuffledDeck[0].value
+    dOne.className = `card ${shuffledDeck[1].face}`
+    dTotal = shuffledDeck[1].value
+    pTwo.className = `card ${shuffledDeck[2].face}` 
+    pTotal += shuffledDeck[2].value
+    dTwo.className = `card ${shuffledDeck[3].face}`
+    dTotal += shuffledDeck[3].value
+}
+
+dealFirstRound()
+
+function storeAndDeal() {
+    storeWager
+    dealFirstRound
+}
+
+function playerHit() {
+
+}
+
+function playerStand() {
+
+}
+
 function calcPlayerTotal() {
 
 }
@@ -143,14 +168,14 @@ function clearMsg() {
     msgCntr.innerHTML = ''
 }
 
-function testCard() {
-    dOne.className = 'card d09'
-    pOne.className = 'card sA'
-    dTwo.className = 
-    pTwo.className = 'card hK'
-}
+// function testCard() {
+//     dOne.className = 'card d09'
+//     pOne.className = 'card sA'
+//     dTwo.className = 'card dK'
+//     pTwo.className = 'card hK'
+// }
 
-testCard()
+// testCard()
 
 /*-------------------------------------------------*/
 
