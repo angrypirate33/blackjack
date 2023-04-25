@@ -37,6 +37,8 @@ const hitBtn = document.getElementById('hitButton')
 const standBtn = document.getElementById('standButton')
 let bankAmt = document.getElementById('bankrollAmt')
 let msgCntr = document.getElementById('messageCenter')
+let playerScore = document.getElementById('playerScoreValue')
+let dealerScore = document.getElementById('dealerScoreValue')
 
 // this chunk of variables cache the location each card will go.
 const pOne = document.getElementById('playerOne')
@@ -144,9 +146,11 @@ function dealFirstRound() {
     setTimeout(() => pTwo.className = `card ${shuffledDeck[2].face}`, 3000)
     setTimeout(() => cardSound.play(), 3000)
     setTimeout(() => pTotal += shuffledDeck[2].value, 3001)
+    setTimeout(renderPlayerScore, 3002)
     setTimeout(() => dTwo.className = `card ${shuffledDeck[3].face}`, 4000)
     setTimeout(() => cardSound.play(), 4000)
     setTimeout(() => dTotal += shuffledDeck[3].value, 4001)
+    setTimeout(renderDealerScore, 4002)
 }
 
 dealFirstRound()
@@ -169,17 +173,17 @@ function calcPlayerTotal() {
 }
 
 function renderBank() {
-        document.querySelector('#bankrollAmt').innerHTML = ''
-        document.querySelector('#bankrollAmt').innerHTML += `Bankroll: $${bankAmt}`
+    document.querySelector('#bankrollAmt').innerHTML = ''
+    document.querySelector('#bankrollAmt').innerHTML += `Bankroll: $${bankAmt}`
 }
 
 function renderDealerScore() {
-
+    dealerScore.innerHTML = `${dTotal}`
 }
 
 function renderPlayerScore() {
-
-}
+    playerScore.innerHTML = `${pTotal}`
+} 
 
 function clearMsg() {
     msgCntr.innerHTML = ''

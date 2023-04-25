@@ -85,6 +85,16 @@ body {
     margin-left: 2vmin;
 }
 
+#dealerScoreTitle {
+    display: flex;
+    font-family: 'Castoro Titling', sans-serif;
+    font-size: 2vmin;
+    width: 30vmin;
+    justify-content: center;
+    margin-top: 3vmin;
+    margin-left: 2vmin;
+}
+
 #playerScoreValue {
     display: flex;
     font-family: 'Castoro Titling', sans-serif;
@@ -95,6 +105,15 @@ body {
     margin-left: 2vmin;
 }
 
+#dealerScoreValue {
+    display: flex;
+    font-family: 'Castoro Titling', sans-serif;
+    font-size: 3vmin;
+    font-weight: bold;
+    width: 30vmin;
+    justify-content: center;
+    margin-left: 2vmin;
+}
 #dealerCards, #playerCards {
     display: flex;
     justify-content: right;
@@ -105,8 +124,8 @@ body {
 #playerOne, #playerTwo, #playerThree, #playerFour, #playerFive, #playerSix, #playerSeven {
     border-width: .1vmin;
     border-radius: 10%;
-    height: 15vmin;
-    width: 10.8vmin;
+    height: 12vmin;
+    width: 8.64vmin;
 }
 
 #wagerInfo {
