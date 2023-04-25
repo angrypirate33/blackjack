@@ -130,14 +130,14 @@ function storeWager() {
 }
 
 function dealFirstRound() {
-    pOne.className = `card ${shuffledDeck[0].face}`
-    pTotal = shuffledDeck[0].value
-    dOne.className = `card ${shuffledDeck[1].face}`
-    dTotal = shuffledDeck[1].value
-    pTwo.className = `card ${shuffledDeck[2].face}` 
-    pTotal += shuffledDeck[2].value
-    dTwo.className = `card ${shuffledDeck[3].face}`
-    dTotal += shuffledDeck[3].value
+    setTimeout(() => pOne.className = `card ${shuffledDeck[0].face}`, 1000)
+    setTimeout(() => pTotal = shuffledDeck[0].value, 1001)
+    setTimeout(() => dOne.className = `card ${shuffledDeck[1].face}`, 2000)
+    setTimeout(() => dTotal = shuffledDeck[1].value, 2001)
+    setTimeout(() => pTwo.className = `card ${shuffledDeck[2].face}`, 3000)
+    setTimeout(() => pTotal += shuffledDeck[2].value, 3001)
+    setTimeout(() => dTwo.className = `card ${shuffledDeck[3].face}`, 4000)
+    setTimeout(() => dTotal += shuffledDeck[3].value, 4001)
 }
 
 dealFirstRound()
