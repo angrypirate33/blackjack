@@ -133,7 +133,7 @@ function dealFirstRound() {
     setTimeout(() => pOne.className = `card ${shuffledDeck[0].face}`, 1000)
     setTimeout(() => cardSound.play(), 1000)
     setTimeout(() => pTotal = shuffledDeck[0].value, 1001)
-    setTimeout(() => dOne.className = `card ${shuffledDeck[1].face}`, 2000)
+    setTimeout(() => dOne.className = `card ${shuffledDeck[1].face} back`, 2000)
     setTimeout(() => cardSound.play(), 2000)
     setTimeout(() => dTotal = shuffledDeck[1].value, 2001)
     setTimeout(() => pTwo.className = `card ${shuffledDeck[2].face}`, 3000)
@@ -166,6 +166,14 @@ function calcPlayerTotal() {
 function renderBank() {
         document.querySelector('#bankrollAmt').innerHTML = ''
         document.querySelector('#bankrollAmt').innerHTML += `Bankroll: $${bankAmt}`
+}
+
+function renderDealerScore() {
+
+}
+
+function renderPlayerScore() {
+
 }
 
 function clearMsg() {
