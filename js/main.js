@@ -60,7 +60,7 @@ const dSeven = document.getElementById('dealerSeven')
 /*-----------------event listeners-----------------*/
 
 wagerAmt.addEventListener('change', playChipSound)
-betButton.addEventListener('click', storeWager)
+betButton.addEventListener('click', storeAndDeal)
 
 /*-------------------------------------------------*/
 
@@ -153,11 +153,11 @@ function dealFirstRound() {
     setTimeout(renderDealerScore, 4002)
 }
 
-dealFirstRound()
+//dealFirstRound()
 
 function storeAndDeal() {
-    storeWager
-    dealFirstRound
+    storeWager()
+    dealFirstRound()
 }
 
 function playerHit() {
