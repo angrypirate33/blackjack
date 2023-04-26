@@ -27,6 +27,7 @@ let pTotal
 let currWager
 let turn
 let winner
+let isBusted = 'false'
 
 /*-------------------------------------------------*/
 
@@ -194,30 +195,35 @@ function playerHit() {
         setTimeout(() => shuffledDeck.shift(), 502)
         setTimeout(() => cardSound.play(), 500)
         setTimeout(renderPlayerScore, 503)
+        setTimeout(checkForPlayerBust, 504)
     } else if (pFour.className === 'playerCard') {
         setTimeout(() => pFour.className = `card ${shuffledDeck[0].face}`, 500)
         setTimeout(() => pTotal += shuffledDeck[0].value, 501)
         setTimeout(() => shuffledDeck.shift(), 502)
         setTimeout(() => cardSound.play(), 500)
         setTimeout(renderPlayerScore, 503)
+        setTimeout(checkForPlayerBust, 504)
     } else if (pFive.className === 'playerCard') {
         setTimeout(() => pFive.className = `card ${shuffledDeck[0].face}`, 500)
         setTimeout(() => pTotal += shuffledDeck[0].value, 501)
         setTimeout(() => shuffledDeck.shift(), 502)
         setTimeout(() => cardSound.play(), 500)
         setTimeout(renderPlayerScore, 503)
+        setTimeout(checkForPlayerBust, 504)
     } else if (pSix.className === 'playerCard') {
         setTimeout(() => pSix.className = `card ${shuffledDeck[0].face}`, 500)
         setTimeout(() => pTotal += shuffledDeck[0].value, 501)
         setTimeout(() => shuffledDeck.shift(), 502)
         setTimeout(() => cardSound.play(), 500)
         setTimeout(renderPlayerScore, 503)
+        setTimeout(checkForPlayerBust, 504)
     } else {
         setTimeout(() => pSeven.className = `card ${shuffledDeck[0].face}`, 500)
         setTimeout(() => pTotal += shuffledDeck[0].value, 501)
         setTimeout(() => shuffledDeck.shift(), 502)
         setTimeout(() => cardSound.play(), 500)
         setTimeout(renderPlayerScore, 503)
+        setTimeout(checkForPlayerBust, 504)
     }
 }
 
@@ -238,6 +244,13 @@ function checkForDealerBJ() {
     let dealerTotal = dHidden + dTotal
     if (dealerTotal === 21) {
         msgCntr.innerHTML = `Dealer hit blackjack, player loses.`
+    }
+}
+
+function checkForPlayerBust() {
+    if (pTotal >= BUST_SCORE) {
+        msgCntr.innerHTML = `Player has busted and lost the hand.`
+        isBusted = 'true'
     }
 }
 
@@ -271,6 +284,7 @@ function clearTable() {
     pSix.className = 'playerCard'
     pSeven.className = 'playerCard'
     playerScore.innerHTML = ''
+    isBusted = 'false'
 }
 
 function clearWager() {
