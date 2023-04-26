@@ -66,7 +66,19 @@ const dSeven = document.getElementById('dealerSeven')
 /*-----------------event listeners-----------------*/
 
 wagerAmt.addEventListener('change', playChipSound)
-betButton.addEventListener('click', storeAndDeal)
+
+// used Google's Bard AI to help me with the second part of the 
+// below event listener to make sure it only triggers the
+// storeAndDeal function in certain situations.
+betButton.addEventListener('click', () => {
+    currWager = wagerAmt.value
+    if (currWager <= bankAmt) {
+    storeAndDeal()
+} else {
+    msgCntr.innerHTML = `You do not have enough money to place this bet.  Please
+    bet less than $${bankAmt} to proceed.`
+}
+})
 
 /*-------------------------------------------------*/
 
@@ -132,10 +144,7 @@ function storeWager() {
     if (currWager <= bankAmt) {
     bankAmt = (bankAmt - wagerAmt.value)
     renderBank()
-    } else {
-        msgCntr.innerHTML = `You do not have enough money to place this bet.  Please
-        bet less than $${bankAmt} to proceed.`
-    }
+    } 
 }
 
 // this function deals the first round of four cards in the correct positions.
@@ -166,12 +175,13 @@ function dealFirstRound() {
     setTimeout(checkForDealerBJ, 4015)
 }
 
-function storeAndDeal() {
+function storeAndDeal() {    
     clearTable()
     storeWager()
     dealFirstRound()
     clearWager()
 }
+
 
 function playerHit() {
 
@@ -185,6 +195,8 @@ function checkForPlayerBJ() {
     let bjPayout = currWager * 1.5
     if (pTotal === 21) {
         msgCntr.innerHTML = `Player hit blackjack and wins $${bjPayout}!`
+        bankAmt += bjPayout
+        renderBank()
     }
 }
 
