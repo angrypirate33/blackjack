@@ -3,10 +3,11 @@
 ///////constsants provided by CSS card library///////
 const suits = ['s', 'c', 'd', 'h']
 const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A']
-const NUM_DECKS = 3
+const NUM_DECKS = 3 // this constant was not provided by the library
+// but I needed it to be above buildOriginalDeck().
 const originalDeck = buildOriginalDeck()
-
 ///////////////end of provided constants/////////////
+
 
 const chipSound = new Audio('sounds/chips.mp3')
 const cardSound = new Audio('sounds/cardflip.mp3')
@@ -24,7 +25,10 @@ let shuffledDeck = getNewShuffledDeck()
 let dTotal
 let pTotal
 let currWager
-
+let turn
+let winner
+let playerHand 
+let dealerHand 
 
 /*-------------------------------------------------*/
 
@@ -111,6 +115,9 @@ init()
 function init() {
     bankAmt = 1000
     document.querySelector('#bankrollAmt').innerHTML += `${bankAmt}`
+    turn = 'p'
+    playerHand = []
+    dealerHand = []
  }
 
 function playChipSound() {
