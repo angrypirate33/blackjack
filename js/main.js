@@ -185,7 +185,8 @@ function storeAndDeal() {
 }
 
 // this function deals an additional card when the player clicks the hit button
-// the if statement determines where the card gets placed.
+// the if statement determines where the card gets placed based on if the spot
+// is already taken by another card.
 function playerHit() {
     if (pThree.className === 'playerCard') {
         setTimeout(() => pThree.className = `card ${shuffledDeck[0].face}`, 500)
@@ -194,13 +195,29 @@ function playerHit() {
         setTimeout(() => cardSound.play(), 500)
         setTimeout(renderPlayerScore, 503)
     } else if (pFour.className === 'playerCard') {
-
+        setTimeout(() => pFour.className = `card ${shuffledDeck[0].face}`, 500)
+        setTimeout(() => pTotal += shuffledDeck[0].value, 501)
+        setTimeout(() => shuffledDeck.shift(), 502)
+        setTimeout(() => cardSound.play(), 500)
+        setTimeout(renderPlayerScore, 503)
     } else if (pFive.className === 'playerCard') {
-
+        setTimeout(() => pFive.className = `card ${shuffledDeck[0].face}`, 500)
+        setTimeout(() => pTotal += shuffledDeck[0].value, 501)
+        setTimeout(() => shuffledDeck.shift(), 502)
+        setTimeout(() => cardSound.play(), 500)
+        setTimeout(renderPlayerScore, 503)
     } else if (pSix.className === 'playerCard') {
-
+        setTimeout(() => pSix.className = `card ${shuffledDeck[0].face}`, 500)
+        setTimeout(() => pTotal += shuffledDeck[0].value, 501)
+        setTimeout(() => shuffledDeck.shift(), 502)
+        setTimeout(() => cardSound.play(), 500)
+        setTimeout(renderPlayerScore, 503)
     } else {
-
+        setTimeout(() => pSeven.className = `card ${shuffledDeck[0].face}`, 500)
+        setTimeout(() => pTotal += shuffledDeck[0].value, 501)
+        setTimeout(() => shuffledDeck.shift(), 502)
+        setTimeout(() => cardSound.play(), 500)
+        setTimeout(renderPlayerScore, 503)
     }
 }
 
