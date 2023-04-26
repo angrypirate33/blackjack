@@ -8,7 +8,6 @@ const NUM_DECKS = 3 // this constant was not provided by the library
 const originalDeck = buildOriginalDeck()
 ///////////////end of provided constants/////////////
 
-
 const chipSound = new Audio('sounds/chips.mp3')
 const cardSound = new Audio('sounds/cardflip.mp3')
 const BUST_SCORE = 22
@@ -28,7 +27,6 @@ let pTotal
 let currWager
 let turn
 let winner
-
 
 /*-------------------------------------------------*/
 
@@ -60,7 +58,6 @@ const dFive = document.getElementById('dealerFive')
 const dSix = document.getElementById('dealerSix')
 const dSeven = document.getElementById('dealerSeven')
 
-
 /*-------------------------------------------------*/
 
 /*-----------------event listeners-----------------*/
@@ -82,11 +79,13 @@ betButton.addEventListener('click', () => {
 
 standBtn.addEventListener('click', playerStand)
 
+hitBtn.addEventListener('click', playerHit)
+
 /*-------------------------------------------------*/
 
 /*--------------------functions--------------------*/
 
-//////FUNCTIONS PROVIDED BY CSS CARD LIBRARY/////////
+//////functions provided by css card library replit/////////
 function getNewShuffledDeck() {
     const tempDeck = [...originalDeck, ...originalDeck, ...originalDeck]
     const newShuffledDeck = []
@@ -113,7 +112,7 @@ return deck;
 function renderNewShuffledDeck() {
     shuffledDeck = getNewShuffledDeck();
     renderDeckInContainer(shuffledDeck, shuffledContainer);
-  }
+}
 
 function renderDeckInContainer(deck, container) {
     container.innerHTML = '';
@@ -122,15 +121,16 @@ function renderDeckInContainer(deck, container) {
       cardsHtml += `<div class="card ${card.face}"></div>`;
     });
     container.innerHTML = cardsHtml;
-  }
+}
 //////////////end of provided functions//////////////
+
 init()
 // initializes starting game state, cards, bankroll, wager, and score amts.
 function init() {
     bankAmt = 1000
     document.querySelector('#bankrollAmt').innerHTML += `${bankAmt}`
     turn = 'p'
- }
+}
 
 function playChipSound() {
     chipSound.play()
@@ -184,9 +184,24 @@ function storeAndDeal() {
     clearWager()
 }
 
-
+// this function deals an additional card when the player clicks the hit button
+// the if statement determines where the card gets placed.
 function playerHit() {
+    if (pThree.className === 'playerCard') {
+        setTimeout(() => pThree.className = `card ${shuffledDeck[0].face}`, 500)
+        setTimeout(() => pTotal += shuffledDeck[0].value, 501)
+        setTimeout(() => shuffledDeck.shift(), 502)
+        setTimeout(() => cardSound.play(), 500)
+        setTimeout(renderPlayerScore, 503)
+    } else if (pFour.className === 'playerCard') {
 
+    } else if (pFive.className === 'playerCard') {
+
+    } else if (pSix.className === 'playerCard') {
+
+    } else {
+
+    }
 }
 
 function playerStand() {
