@@ -162,6 +162,7 @@ function dealFirstRound() {
     setTimeout(() => shuffledDeck.shift(), 4002)
     setTimeout(() => cardSound.play(), 4000)
     setTimeout(renderDealerScore, 4003)
+    setTimeout(checkForPlayerBJ, 4010)
 }
 
 function storeAndDeal() {
@@ -180,7 +181,10 @@ function playerStand() {
 }
 
 function checkForPlayerBJ() {
-
+    let bjPayout = currWager * 1.5
+    if (pTotal === 21) {
+        msgCntr.innerHTML = `Player hit blackjack and wins $${bjPayout}!`
+    }
 }
 
 function calcPlayerTotal() {
