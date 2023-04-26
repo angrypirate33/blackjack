@@ -163,6 +163,7 @@ function dealFirstRound() {
     setTimeout(() => cardSound.play(), 4000)
     setTimeout(renderDealerScore, 4003)
     setTimeout(checkForPlayerBJ, 4010)
+    setTimeout(checkForDealerBJ, 4015)
 }
 
 function storeAndDeal() {
@@ -187,8 +188,11 @@ function checkForPlayerBJ() {
     }
 }
 
-function calcPlayerTotal() {
-
+function checkForDealerBJ() {
+    let dealerTotal = dHidden + dTotal
+    if (dealerTotal === 21) {
+        msgCntr.innerHTML = `Dealer hit blackjack, player loses.`
+    }
 }
 
 function renderBank() {
