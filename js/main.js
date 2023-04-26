@@ -80,6 +80,8 @@ betButton.addEventListener('click', () => {
 }
 })
 
+standBtn.addEventListener('click', playerStand)
+
 /*-------------------------------------------------*/
 
 /*--------------------functions--------------------*/
