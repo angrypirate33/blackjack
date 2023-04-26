@@ -10,7 +10,7 @@ const originalDeck = buildOriginalDeck()
 
 const chipSound = new Audio('sounds/chips.mp3')
 const cardSound = new Audio('sounds/cardflip.mp3')
-
+const BUST_SCORE = 22
 
 /*-------------------------------------------------*/
 
@@ -55,6 +55,8 @@ const dFour = document.getElementById('dealerFour')
 const dFive = document.getElementById('dealerFive')
 const dSix = document.getElementById('dealerSix')
 const dSeven = document.getElementById('dealerSeven')
+
+
 /*-------------------------------------------------*/
 
 /*-----------------event listeners-----------------*/
@@ -153,9 +155,8 @@ function dealFirstRound() {
     setTimeout(renderDealerScore, 4002)
 }
 
-//dealFirstRound()
-
 function storeAndDeal() {
+    clearTable()
     storeWager()
     dealFirstRound()
 }
@@ -184,6 +185,25 @@ function renderDealerScore() {
 function renderPlayerScore() {
     playerScore.innerHTML = `${pTotal}`
 } 
+
+function clearTable() {
+    dOne.className = 'dealerCard'
+    dTwo.className = 'dealerCard'
+    dThree.className = 'dealerCard'
+    dFour.className = 'dealerCard'
+    dFive.className = 'dealerCard'
+    dSix.className = 'dealerCard'
+    dSeven.className = 'dealerCard'
+    dealerScore.innerHTML = ''
+    pOne.className = 'playerCard'
+    pTwo.className = 'playerCard'
+    pThree.className = 'playerCard'
+    pFour.className = 'playerCard'
+    pFive.className = 'playerCard'
+    pSix.className = 'playerCard'
+    pSeven.className = 'playerCard'
+    playerScore.innerHTML = ''
+}
 
 function clearMsg() {
     msgCntr.innerHTML = ''
