@@ -57,6 +57,7 @@ body {
     font-size: 2vmin;
     font-family: 'Castoro Titling', sans-serif;
     padding-top: 1vmin;
+    font-weight: bold;
 }
 
 #wagerAmt {
@@ -156,6 +157,7 @@ body {
     margin-top: .5vmin;
     font-family: 'Castoro Titling', sans-serif;
     font-size: 2vmin;
+    font-weight: bold;
 }
 
 #settingsHeader {
