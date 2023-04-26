@@ -23,12 +23,12 @@ let shuffledDeck = getNewShuffledDeck()
 
 // variables to store the total score of each hand
 let dTotal
+let dHidden
 let pTotal
 let currWager
 let turn
 let winner
-let playerHand 
-let dealerHand 
+
 
 /*-------------------------------------------------*/
 
@@ -116,8 +116,6 @@ function init() {
     bankAmt = 1000
     document.querySelector('#bankrollAmt').innerHTML += `${bankAmt}`
     turn = 'p'
-    playerHand = []
-    dealerHand = []
  }
 
 function playChipSound() {
@@ -147,23 +145,23 @@ function storeWager() {
 // It makes sure the dealers first card is face down.
 function dealFirstRound() {
     setTimeout(() => pOne.className = `card ${shuffledDeck[0].face}`, 1000)
-    setTimeout(() => shuffledDeck.shift(), 1000)
-    setTimeout(() => cardSound.play(), 1000)
     setTimeout(() => pTotal = shuffledDeck[0].value, 1001)
+    setTimeout(() => shuffledDeck.shift(), 1002)
+    setTimeout(() => cardSound.play(), 1000)
     setTimeout(() => dOne.className = `card ${shuffledDeck[0].face} back`, 2000)
-    setTimeout(() => shuffledDeck.shift(), 2000)
+    setTimeout(() => dHidden = shuffledDeck[0].value, 2001)
+    setTimeout(() => shuffledDeck.shift(), 2002)
     setTimeout(() => cardSound.play(), 2000)
-    // setTimeout(() => dTotal = shuffledDeck[1].value, 2001)
     setTimeout(() => pTwo.className = `card ${shuffledDeck[0].face}`, 3000)
-    setTimeout(() => shuffledDeck.shift(), 3000)
+    setTimeout(() => pTotal += shuffledDeck[0].value, 3001)
+    setTimeout(() => shuffledDeck.shift(), 3002)
     setTimeout(() => cardSound.play(), 3000)
-    setTimeout(() => pTotal += shuffledDeck[2].value, 3001)
-    setTimeout(renderPlayerScore, 3002)
+    setTimeout(renderPlayerScore, 3003)
     setTimeout(() => dTwo.className = `card ${shuffledDeck[0].face}`, 4000)
-    setTimeout(() => shuffledDeck.shift(), 4000)
+    setTimeout(() => dTotal = shuffledDeck[0].value, 4001)
+    setTimeout(() => shuffledDeck.shift(), 4002)
     setTimeout(() => cardSound.play(), 4000)
-    setTimeout(() => dTotal = shuffledDeck[3].value, 4001)
-    setTimeout(renderDealerScore, 4002)
+    setTimeout(renderDealerScore, 4003)
 }
 
 function storeAndDeal() {
@@ -177,6 +175,10 @@ function playerHit() {
 }
 
 function playerStand() {
+    turn = 'd'
+}
+
+function checkForPlayerBJ() {
 
 }
 
