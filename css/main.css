@@ -60,6 +60,10 @@ body {
     font-weight: bold;
 }
 
+#dealerHeader {
+    margin-bottom: 1vmin;
+}
+
 #wagerAmt {
     height: 1.5vmin;
     width: 10vmin;

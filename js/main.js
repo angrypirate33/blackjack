@@ -168,6 +168,7 @@ function storeAndDeal() {
     clearTable()
     storeWager()
     dealFirstRound()
+    clearWager()
 }
 
 function playerHit() {
@@ -216,6 +217,10 @@ function clearTable() {
     pSix.className = 'playerCard'
     pSeven.className = 'playerCard'
     playerScore.innerHTML = ''
+}
+
+function clearWager() {
+    wagerAmt.value = ''
 }
 
 function clearMsg() {
