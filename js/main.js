@@ -3,7 +3,7 @@
 ///////constsants provided by CSS card library///////
 const suits = ['s', 'c', 'd', 'h']
 const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A']
-const NUM_DECKS = 3 // this constant was not provided by the library
+const NUM_DECKS = 10 // this constant was not provided by the library
 // but I needed it to be above buildOriginalDeck().
 const originalDeck = buildOriginalDeck()
 ///////////////end of provided constants/////////////
@@ -90,7 +90,9 @@ standBtn.addEventListener('click', playerStand)
 
 //////functions provided by css card library replit/////////
 function getNewShuffledDeck() {
-    const tempDeck = [...originalDeck, ...originalDeck, ...originalDeck]
+    const tempDeck = [...originalDeck, ...originalDeck, ...originalDeck, ...originalDeck,
+        ...originalDeck, ...originalDeck, ...originalDeck, ...originalDeck, ...originalDeck,
+        ...originalDeck]
     const newShuffledDeck = []
     while (tempDeck.length) {
       const rndIdx = Math.floor(Math.random() * tempDeck.length)
