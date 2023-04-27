@@ -336,6 +336,7 @@ function checkForDealerBust() {
         Winnings of $${currWager} in addition to your original bet have 
         been added to your bankroll!`
         bankAmt += currWager
+        turn = 'p'
     }
 }
 
@@ -365,7 +366,7 @@ function decideWinner() {
 function handlePlayerWin() {
     msgCntr.innerHTML = `Player Wins! Winnings of $${currWager} in addition to
     your original bet have been added to your bankroll!`
-    bankAmt = parseInt(bankAmt) + parseInt(currWager) + parseInt(currWager)
+    bankAmt = parseInt(bankAmt) + (parseInt(currWager) * 2)
     playChipSound
     setTimeout(playChipSound, 50)
     setTimeout(renderBank, 50)
