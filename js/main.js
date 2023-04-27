@@ -383,6 +383,7 @@ function handleTie() {
     msgCntr.innerHTML = `It's a push, both Dealer and Player have ${pTotal}. Player's
     original bet of $${currWager} has been returned to their bankroll.`
     bankAmt = parseInt(bankAmt) + parseInt(currWager)
+    turn = 'p'
     setTimeout(renderBank, 50)
 }
 
