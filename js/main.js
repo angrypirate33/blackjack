@@ -78,9 +78,9 @@ betButton.addEventListener('click', () => {
 }
 })
 
-standBtn.addEventListener('click', playerStand)
-
 hitBtn.addEventListener('click', playerHit)
+
+standBtn.addEventListener('click', playerStand)
 
 /*-------------------------------------------------*/
 
@@ -229,8 +229,13 @@ function playerHit() {
 }
 }
 
+function dealerAction() {
+    setTimeout(() => dThree.className = `card ${shuffledDeck[0].face}`, 500)
+}
+
 function playerStand() {
     turn = 'd'
+    dealerAction()
 }
 
 function checkForPlayerBJ() {
@@ -246,7 +251,15 @@ function checkForDealerBJ() {
     let dealerTotal = dHidden + dTotal
     if (dealerTotal === 21) {
         msgCntr.innerHTML = `Dealer hit blackjack, player loses.`
+        isBusted = 'true'
+        flipDealerCard()
     }
+}
+
+function flipDealerCard() {
+    dOne.className = dOne.className.slice(0, -4)
+    dTotal = dTotal + dHidden
+    renderDealerScore()
 }
 
 function checkForPlayerBust() {
@@ -254,6 +267,21 @@ function checkForPlayerBust() {
         msgCntr.innerHTML = `Player has busted and lost the hand.`
         isBusted = 'true'
     }
+}
+
+function checkForDealerBust() {
+    if (dTotal >= BUST_SCORE) {
+        msgCntr.innerHTML = `Dealer has busted, Player wins the hand! 
+        Winnings of $${currWager} in addition to your original bet have 
+        been added to your bankroll!`
+        bankAmt += currWager
+    }
+}
+
+function handlePlayerWin() {
+    msgCntr.innerHTML = `Player Wins! Winnings of $${currWager} in addition to
+    your original bet have been added to your bankroll!`
+    bankAmt += currWager
 }
 
 function renderBank() {
