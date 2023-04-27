@@ -47,7 +47,7 @@ body {
     flex-direction: column;
     background-color: #14BA49;
     height: 50vh;
-    width: 75vw;
+    width: 100vmin;
     border-style: groove;
     border-width: 6vmin;
     border-radius: 15%;
