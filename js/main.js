@@ -65,14 +65,16 @@ const dSeven = document.getElementById('dealerSeven')
 
 wagerAmt.addEventListener('change', playChipSound)
 
-// used Google's Bard AI to help me with the second part of the 
-// below event listener to make sure it only triggers the
-// storeAndDeal function in certain situations.
+// this even listener only allows players to start
+// a hand by clicking the place bet button if their
+// bet is above the table minimum.
 betButton.addEventListener('click', () => {
     currWager = wagerAmt.value
-    if (currWager <= bankAmt) {
+    if (currWager <= bankAmt && currWager > 0) {
     storeAndDeal()
-} else {
+} else if (currWager < 10 || currWager === '') {
+    msgCntr.innerHTML = `Please wager at least the minimum bet of $10 to play a hand.`
+}else {
     msgCntr.innerHTML = `You do not have enough money to place this bet.  Please
     bet less than $${bankAmt} to proceed.`
 }
