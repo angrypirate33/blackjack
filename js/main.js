@@ -232,7 +232,7 @@ function playerHit() {
 function dealerAction() {
     if ((dHidden + dTotal) <= 16) {
     setTimeout(() => dThree.className = `card ${shuffledDeck[0].face}`, 1000)
-    setTimeout(() => dTotal = dTotal + shuffledDeck[0].value, 1001)
+    setTimeout(() => dTotal += shuffledDeck[0].value, 1001)
     setTimeout(() => cardSound.play(), 1000)
     setTimeout(renderDealerScore, 1002)
     setTimeout(checkForDealerBust, 1002)
@@ -245,7 +245,7 @@ function dealerAction() {
 
 function decideNextStep() {
     if (dHidden + dTotal <= 16) {
-    setTimeout(() => dThree.className = `card ${shuffledDeck[0].face}`, 1000)
+    setTimeout(() => dFour.className = `card ${shuffledDeck[0].face}`, 1000)
     setTimeout(() => dTotal = dTotal + shuffledDeck[0].value, 1001)
     setTimeout(() => cardSound.play(), 1000)
     setTimeout(renderDealerScore, 1002)
@@ -259,7 +259,7 @@ function decideNextStep() {
 
 function decideNextNextStep() {
     if (dHidden + dTotal <= 16) {
-    setTimeout(() => dThree.className = `card ${shuffledDeck[0].face}`, 1000)
+    setTimeout(() => dFive.className = `card ${shuffledDeck[0].face}`, 1000)
     setTimeout(() => dTotal = dTotal + shuffledDeck[0].value, 1001)
     setTimeout(() => cardSound.play(), 1000)
     setTimeout(renderDealerScore, 1002)
@@ -305,8 +305,8 @@ function flipDealerCard() {
 
 function checkForPlayerBust() {
     if (pTotal >= BUST_SCORE) {
-        msgCntr.innerHTML = `Player has busted and lost the hand.
-        Feel free to place another wager.`
+        msgCntr.innerHTML = `Player has busted and lost their bet
+        of $${currWager}. Feel free to place another wager.`
         isBusted = 'true'
     }
 }
@@ -321,8 +321,13 @@ function checkForDealerBust() {
 }
 
 function decideWinner() {
-    if (dTotal > pTotal) {
+    if (dTotal > pTotal && dTotal <= 21) {
         setTimeout(handleDealerWin(), 1000)
+    } else if (dTotal > pTotal && dTotal > 21) {
+        setTimeout(msgCntr.innerHTML = `Dealer has busted, Plaayer wins!
+        Winnings of $${currWager} in addition to your original bet have
+        been added to your bankroll!`)
+        setTimeout(handlePlayerWin, 1000)
     } else if (dTotal < pTotal) {
         setTimeout(handlePlayerWin(), 1000)
     } else {
@@ -348,7 +353,10 @@ function handleDealerWin() {
 }
 
 function handleTie() {
-    msgCntr.innerHTML = `It's a push, both Dealer and Player have ${pTotal}`
+    msgCntr.innerHTML = `It's a push, both Dealer and Player have ${pTotal}. Player's
+    original bet of $${currWager} has been returned to their bankroll.`
+    bankAmt = parseInt(bankAmt) + parseInt(currWager)
+    setTimeout(renderBank, 50)
 }
 
 function renderBank() {
