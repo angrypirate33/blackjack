@@ -33,11 +33,15 @@ let isBusted = 'false'
 
 /*----------------cached elements------------------*/
 
-// this chunk of variables cache the buttons and other important elements.
+// these variables cache the buttons and other important elements.
+
+// buttons
 const betButton = document.getElementById('placeBet')
 const wagerAmt = document.getElementById('wagerAmt')
 const hitBtn = document.getElementById('hitButton')
 const standBtn = document.getElementById('standButton')
+
+// game elements
 let bankAmt = document.getElementById('bankrollAmt')
 let msgCntr = document.getElementById('messageCenter')
 let playerScore = document.getElementById('playerScoreValue')
@@ -102,7 +106,7 @@ function getNewShuffledDeck() {
       newShuffledDeck.push(tempDeck.splice(rndIdx, 1)[0])
     }
     return newShuffledDeck
-  }
+}
 
 function buildOriginalDeck() {
     const deck = []
@@ -113,8 +117,8 @@ function buildOriginalDeck() {
         value: Number(rank) || (rank === 'A' ? 11 : 10)
     })
     })
-})
-return deck;
+    })
+    return deck;
 }
 
 function renderNewShuffledDeck() {
