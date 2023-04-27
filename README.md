@@ -45,6 +45,7 @@ Game can be accessed at https://angrypirate33.github.io/blackjack/.
     - If the player does not want any additional cards, they should click "Stand".
     - If the player does want additional cards, they should click "Hit".
     - Player continues to click "Hit" until they no longer want cards, then click "Stand".
+    - If the player's total goes over 21 at any point, they bust and immediately lose the hand.
     - Once player clicks "Stand", the dealer will complete the hand and the results will be displayed.
     - If the player loses, the hand is over and the player can bet again.
     - If the player wins, the amount of their bet plus their winnings are added to their bankroll.
