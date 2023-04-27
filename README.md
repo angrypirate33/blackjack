@@ -31,7 +31,7 @@ Blackjack is one of the most popular casino games in the world. It is a relative
     - Playing card CSS library provided by GA.
         - https://replit.com/@SEIStudent/How-to-Use-CSS-Card-Library#index.html
     - No additional libraries or frameworks were used.
-- Javascript
+- JavaScript
     - No libraries used, vanilaa JavaScript only.
 - Sound effects
     - https://www.zapsplat.com
