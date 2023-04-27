@@ -176,6 +176,7 @@ function dealFirstRound() {
     setTimeout(renderDealerScore, 4003)
     setTimeout(checkForPlayerBJ, 4010)
     setTimeout(checkForDealerBJ, 4015)
+    setTimeout(checkForDoubleAces, 4016)
 }
 
 function storeAndDeal() {    
@@ -282,7 +283,7 @@ function checkForPlayerBJ() {
     let bjPayout = currWager * 1.5
     if (pTotal === 21) {
         msgCntr.innerHTML = `Player hit blackjack and wins $${bjPayout} in 
-        addition to their bet of ${currWager}!`
+        addition to their bet of $${currWager}!`
         bankAmt += bjPayout
         renderBank()
     }
@@ -320,14 +321,22 @@ function checkForDealerBust() {
     }
 }
 
+function checkForDoubleAces() {
+    if (pTotal === 22) {
+        pTotal = 12
+    }
+}
+
 function decideWinner() {
     if (dTotal > pTotal && dTotal <= 21) {
         setTimeout(handleDealerWin(), 1000)
     } else if (dTotal > pTotal && dTotal > 21) {
-        setTimeout(msgCntr.innerHTML = `Dealer has busted, Plaayer wins!
+        setTimeout(msgCntr.innerHTML = `Dealer has busted, Player wins!
         Winnings of $${currWager} in addition to your original bet have
         been added to your bankroll!`)
-        setTimeout(handlePlayerWin, 1000)
+        setTimeout(() => bankAmt = parseInt(bankAmt) + parseInt(currWager), 1000)
+        setTimeout(renderBank, 1000)
+        setTimeout(playChipSound, 1000)
     } else if (dTotal < pTotal) {
         setTimeout(handlePlayerWin(), 1000)
     } else {
