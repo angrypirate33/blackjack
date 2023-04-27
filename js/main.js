@@ -267,7 +267,21 @@ function decideNextNextStep() {
     setTimeout(() => cardSound.play(), 1000)
     setTimeout(renderDealerScore, 1002)
     setTimeout(checkForDealerBust, 1002)
-    // setTimeout(decideNextNextStep, 1003)
+    setTimeout(decideNextNextNextStep, 1003)
+    } else {
+        flipDealerCard()
+        decideWinner()
+    }
+}
+
+function decideNextNextNextStep() {
+    if (dHidden + dTotal <= 16) {
+    setTimeout(() => dSix.className = `card ${shuffledDeck[0].face}`, 1000)
+    setTimeout(() => dTotal = dTotal + shuffledDeck[0].value, 1001)
+    setTimeout(() => cardSound.play(), 1000)
+    setTimeout(renderDealerScore, 1002)
+    setTimeout(checkForDealerBust, 1002)
+    setTimeout(decideNextNextNextStep, 1003)
     } else {
         flipDealerCard()
         decideWinner()
