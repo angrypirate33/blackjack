@@ -355,6 +355,7 @@ function decideWinner() {
         setTimeout(msgCntr.innerHTML = `Dealer has busted, Player wins!
         Winnings of $${currWager} in addition to your original bet have
         been added to your bankroll!`)
+        turn = 'p'
         setTimeout(() => bankAmt = parseInt(bankAmt) + parseInt(currWager) + parseInt(currWager), 1000)
         setTimeout(renderBank, 1000)
         setTimeout(playChipSound, 1000)
