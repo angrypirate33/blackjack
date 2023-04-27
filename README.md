@@ -53,5 +53,5 @@ Game can be accessed at https://angrypirate33.github.io/blackjack/.
 ## Planned Future Enhancements
 - Ability for player to split hands.
 - Ability for player to double down.
-- Ability to chnage table color.
+- Ability to change table color.
 - Ability to mute sounds.

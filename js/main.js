@@ -89,6 +89,9 @@ standBtn.addEventListener('click', playerStand)
 /*--------------------functions--------------------*/
 
 //////functions provided by css card library replit/////////
+
+// below function was provided by library but modified to
+// shuffle ten decks of cards instead of just one.
 function getNewShuffledDeck() {
     const tempDeck = [...originalDeck, ...originalDeck, ...originalDeck, ...originalDeck,
         ...originalDeck, ...originalDeck, ...originalDeck, ...originalDeck, ...originalDeck,
