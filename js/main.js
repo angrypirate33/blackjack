@@ -189,7 +189,7 @@ function storeAndDeal() {
 // the if statement determines where the card gets placed based on if the spot
 // is already taken by another card.
 function playerHit() {
-    if (isBusted === 'false') {
+    if (isBusted === 'false' && turn === 'p') {
     if (pThree.className === 'playerCard') {
         setTimeout(() => pThree.className = `card ${shuffledDeck[0].face}`, 500)
         setTimeout(() => pTotal += shuffledDeck[0].value, 501)
