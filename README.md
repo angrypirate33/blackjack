@@ -37,7 +37,11 @@ Blackjack is one of the most popular casino games in the world. It is a relative
     - Open-source, provided for free by https://www.zapsplat.com.
 
 ## Getting Started
+<<<<<<< HEAD
 Game can be accessed at http://blackjack.angrypirate.net/.
+=======
+Game can be accessed at https://blackjack.angrypirate.net.
+>>>>>>> 05ffee35b22d70f4cf2f45bddf2128c8737241a3
 
 1) Enter wager in input box, either via keyboard or built-in up and down arrows.
 2) When desired wager amount is entered, click "Place Bet" to start the hand.
