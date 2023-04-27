@@ -20,7 +20,7 @@ Blackjack is one of the most popular casino games in the world. It is a relative
 ### After First Round
 ![Alt text](images/BJ%20Screen%202.png)
 ### After Final Round
-![Alt text](images/BJ%20Screen%203.png)
+![](images/BJ%20Screen%203.png)
 
 ## Technologies Used
 - HTML
@@ -34,7 +34,7 @@ Blackjack is one of the most popular casino games in the world. It is a relative
     - https://www.zapsplat.com
 
 ## Geetting Started
-Game can be accessed at. <LINK TO GAME>
+Game can be accessed at https://angrypirate33.github.io/blackjack/.
 
 1) Enter wager in input box, either via keyboard or built-in up and down arrows.
 2) When desired wager amount is entered, click "Place Bet" to start the hand.
