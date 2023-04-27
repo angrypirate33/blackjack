@@ -303,7 +303,7 @@ function checkForPlayerBJ() {
         msgCntr.innerHTML = `Player hit blackjack and wins $${bjPayout} in 
         addition to their bet of $${currWager}!`
         bankAmt = (parseInt(bankAmt) + pareseInt(bjPayout) + parseInt(currWager))
-        renderBank()
+        setTimeout(renderBank, 50)
     }
 }
 
@@ -335,8 +335,9 @@ function checkForDealerBust() {
         msgCntr.innerHTML = `Dealer has busted, Player wins the hand! 
         Winnings of $${currWager} in addition to your original bet have 
         been added to your bankroll!`
-        bankAmt += (currWager * 2)
         turn = 'p'
+        bankAmt = parseInt(bankAmt) + parseInt(currWager) + parseInt(currWager) 
+        setTimeout(renderBank, 100)
     }
 }
 
@@ -354,7 +355,7 @@ function decideWinner() {
         setTimeout(msgCntr.innerHTML = `Dealer has busted, Player wins!
         Winnings of $${currWager} in addition to your original bet have
         been added to your bankroll!`)
-        setTimeout(() => bankAmt = parseInt(bankAmt) + parseInt(currWager), 1000)
+        setTimeout(() => bankAmt = parseInt(bankAmt) + parseInt(currWager) + parseInt(currWager), 1000)
         setTimeout(renderBank, 1000)
         setTimeout(playChipSound, 1000)
     } else if (dTotal < pTotal) {
