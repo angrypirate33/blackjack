@@ -302,7 +302,7 @@ function checkForPlayerBJ() {
     if (pTotal === 21) {
         msgCntr.innerHTML = `Player hit blackjack and wins $${bjPayout} in 
         addition to their bet of $${currWager}!`
-        bankAmt = parseInt(bankAmt) + pareseInt(bjPayout) + parseInt(currWager)
+        bankAmt = (parseInt(bankAmt) + pareseInt(bjPayout) + parseInt(currWager))
         renderBank()
     }
 }
@@ -335,7 +335,7 @@ function checkForDealerBust() {
         msgCntr.innerHTML = `Dealer has busted, Player wins the hand! 
         Winnings of $${currWager} in addition to your original bet have 
         been added to your bankroll!`
-        bankAmt += currWager
+        bankAmt += (currWager * 2)
         turn = 'p'
     }
 }
@@ -343,6 +343,7 @@ function checkForDealerBust() {
 function checkForDoubleAces() {
     if (pTotal === 22) {
         pTotal = 12
+        renderPlayerScore()
     }
 }
 
