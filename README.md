@@ -36,7 +36,7 @@ Blackjack is one of the most popular casino games in the world. It is a relative
 - Sound effects
     - Open-source, provided for free by https://www.zapsplat.com.
 
-## Geetting Started
+## Getting Started
 Game can be accessed at https://angrypirate33.github.io/blackjack/.
 
 1) Enter wager in input box, either via keyboard or built-in up and down arrows.
