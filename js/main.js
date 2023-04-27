@@ -305,7 +305,7 @@ function checkForPlayerBJ() {
     if (pTotal === 21) {
         msgCntr.innerHTML = `Player hit blackjack and wins $${bjPayout} in 
         addition to their bet of $${currWager}!`
-        bankAmt = (parseInt(bankAmt) + pareseInt(bjPayout) + parseInt(currWager))
+        bankAmt = (parseInt(bankAmt) + parseInt(bjPayout) + parseInt(currWager))
         setTimeout(renderBank, 50)
     }
 }
