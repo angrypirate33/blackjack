@@ -312,10 +312,16 @@ function checkForPlayerBJ() {
 
 function checkForDealerBJ() {
     let dealerTotal = dHidden + dTotal
-    if (dealerTotal === 21) {
+    if (dealerTotal === 21 && pTotal < 21) {
         msgCntr.innerHTML = `Dealer hit blackjack, player loses.`
         isBusted = 'true'
         flipDealerCard()
+    } else if (dealerTotal === 21 && pTotal === 21) {
+        msgCntr.innerHTML = `Dealer and Player both hit blackjack. The game is a 
+        push and Player's original bet has been returned.`
+        bankAmt = parseInt(bankAmt) + parseInt(currWager)
+        turn = 'p'
+        setTimeout(renderBank, 50)
     }
 }
 
