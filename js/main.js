@@ -230,18 +230,59 @@ function playerHit() {
 }
 
 function dealerAction() {
-    setTimeout(() => dThree.className = `card ${shuffledDeck[0].face}`, 500)
+    if ((dHidden + dTotal) <= 16) {
+    setTimeout(() => dThree.className = `card ${shuffledDeck[0].face}`, 1000)
+    setTimeout(() => dTotal = dTotal + shuffledDeck[0].value, 1001)
+    setTimeout(() => cardSound.play(), 1000)
+    setTimeout(renderDealerScore, 1002)
+    setTimeout(checkForDealerBust, 1002)
+    setTimeout(decideNextStep, 1003)
+    } else {
+        flipDealerCard()
+        decideWinner()
+    }
+}
+
+function decideNextStep() {
+    if (dHidden + dTotal <= 16) {
+    setTimeout(() => dThree.className = `card ${shuffledDeck[0].face}`, 1000)
+    setTimeout(() => dTotal = dTotal + shuffledDeck[0].value, 1001)
+    setTimeout(() => cardSound.play(), 1000)
+    setTimeout(renderDealerScore, 1002)
+    setTimeout(checkForDealerBust, 1002)
+    setTimeout(decideNextNextStep, 1003)
+    } else {
+        flipDealerCard()
+        decideWinner()
+    }
+}
+
+function decideNextNextStep() {
+    if (dHidden + dTotal <= 16) {
+    setTimeout(() => dThree.className = `card ${shuffledDeck[0].face}`, 1000)
+    setTimeout(() => dTotal = dTotal + shuffledDeck[0].value, 1001)
+    setTimeout(() => cardSound.play(), 1000)
+    setTimeout(renderDealerScore, 1002)
+    setTimeout(checkForDealerBust, 1002)
+    // setTimeout(decideNextNextStep, 1003)
+    } else {
+        flipDealerCard()
+        decideWinner()
+    }
 }
 
 function playerStand() {
+    if (isBusted === 'false' && turn === 'p') {
     turn = 'd'
     dealerAction()
+    }
 }
 
 function checkForPlayerBJ() {
     let bjPayout = currWager * 1.5
     if (pTotal === 21) {
-        msgCntr.innerHTML = `Player hit blackjack and wins $${bjPayout}!`
+        msgCntr.innerHTML = `Player hit blackjack and wins $${bjPayout} in 
+        addition to their bet of ${currWager}!`
         bankAmt += bjPayout
         renderBank()
     }
@@ -264,7 +305,8 @@ function flipDealerCard() {
 
 function checkForPlayerBust() {
     if (pTotal >= BUST_SCORE) {
-        msgCntr.innerHTML = `Player has busted and lost the hand.`
+        msgCntr.innerHTML = `Player has busted and lost the hand.
+        Feel free to place another wager.`
         isBusted = 'true'
     }
 }
@@ -278,10 +320,35 @@ function checkForDealerBust() {
     }
 }
 
+function decideWinner() {
+    if (dTotal > pTotal) {
+        setTimeout(handleDealerWin(), 1000)
+    } else if (dTotal < pTotal) {
+        setTimeout(handlePlayerWin(), 1000)
+    } else {
+        setTimeout(handleTie(), 1000)
+    }
+}
+
 function handlePlayerWin() {
     msgCntr.innerHTML = `Player Wins! Winnings of $${currWager} in addition to
     your original bet have been added to your bankroll!`
-    bankAmt += currWager
+    bankAmt = parseInt(bankAmt) + parseInt(currWager)
+    playChipSound
+    setTimeout(playChipSound, 50)
+    setTimeout(renderBank, 50)
+    turn = 'p'
+}
+
+function handleDealerWin() {
+    msgCntr.innerHTML = `Dealer has ${dTotal} and Player has ${pTotal}, 
+    Player loses.`
+    flipDealerCard
+    turn = 'p'
+}
+
+function handleTie() {
+    msgCntr.innerHTML = `It's a push, both Dealer and Player have ${pTotal}`
 }
 
 function renderBank() {
