@@ -63,6 +63,9 @@ const dFive = document.getElementById('dealerFive')
 const dSix = document.getElementById('dealerSix')
 const dSeven = document.getElementById('dealerSeven')
 
+// this grabs the checkbox for play sound in the settings
+const soundCheck = document.getElementById('muteSound')
+
 /*-------------------------------------------------*/
 
 /*-----------------event listeners-----------------*/
@@ -87,6 +90,17 @@ betButton.addEventListener('click', () => {
 hitBtn.addEventListener('click', playerHit)
 
 standBtn.addEventListener('click', playerStand)
+
+// event listener to mute sound if checkbox is checked in settings.
+soundCheck.addEventListener("change", () => {
+    if (soundCheck.checked) {
+        chipSound.muted = true
+        cardSound.muted = true
+    } else {
+        chipSound.muted = false
+        cardSound.muted = false
+    }
+})
 
 /*-------------------------------------------------*/
 

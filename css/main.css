@@ -28,15 +28,6 @@ body {
     color: white;
 }
 
-#messageCenter {
-    font-family: 'Castoro Titling', sans-serif;
-    color: #FF5858;
-    margin-top: 3vmin;
-    font-size: 4vmin;
-    font-weight: bold;
-    font-style: oblique;
-}
-
 #boardContainer {
     display: flex;
     flex-direction: column;
@@ -161,10 +152,20 @@ body {
     font-weight: bold;
 }
 
+#messageCenter {
+    font-family: 'Castoro Titling', sans-serif;
+    color: #FF5858;
+    margin-top: 3vmin;
+    font-size: 4vmin;
+    font-weight: bold;
+    font-style: oblique;
+    text-align: center;
+}
+
 #settingsHeader {
     color: white;
 }
 
-#playSoundLabel {
+#muteSoundLabel {
     color: white;
 }
